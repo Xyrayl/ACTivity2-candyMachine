@@ -1,0 +1,77 @@
+package CarolynDelaTorre;
+import java.util.Scanner;
+
+public class CandyMachine {
+static Scanner keyboard = new Scanner(System.in);
+
+//Method to Display Item Choices
+public static double displayChoices(){
+ double price = 1;
+  System.out.println("Here's What I Have;");
+  System.out.println("A.        $1.21    Cloudnine");
+  System.out.println("B.        $0.34    Dairy Milk");
+  System.out.println("C.        $3.21    Beng Beng");
+  System.out.println("D.        $1.21    Happy Dreams");
+  System.out.println("E.        $0.21    Sneakers");
+  
+  System.out.println();
+  System.out.print("Which candy would you like to purchase(Letter)?;");
+  String choice = keyboard.next().toUpperCase();
+  
+  if(choice.equals("A")){
+  price = 1.21;
+    return 1.21;
+  }
+  else if(choice.equals("B")){
+  price = 0.34;
+    return 0.34;
+  }
+  else if(choice.equals("C")){
+  price = 3.21;
+    return 3.21;
+  }
+  else if(choice.equals("D")){
+  price = 1.21;
+    return 1.21;
+  }
+  else if(choice.equals("E")){
+  price = 0.21;
+    return 0.21;
+  }
+  else{
+    return price;
+  }
+}
+
+// Method to Dispense Candy and Return Change
+public static void dispense(double moneyinserted,double candyCost){
+  if(moneyinserted > candyCost){
+    System.out.println("Vending....");
+    System.out.println("Here's your Candy!!!");
+    double change = (double)moneyinserted - (double)candyCost;
+    System.out.println("Here's your $"+change+"in change.");
+    System.out.println("Please come back soon");
+  }
+  else{
+    System.out.println("Sorry mate, you too broke.Here's your$"+ moneyinserted+"back.Thank you");
+  }
+}
+
+
+public static void main(String[] args) {
+  //Welcome statement to candy machine
+  System.out.println("Welcome to Smile's Candy Machine!!!");
+  System.out.println("We got the Creamiest Candy on town;)");
+  
+  //Prompt & store for User Information
+  System.out.print("How much money do you have?;");
+  double moneyinserted = keyboard.nextDouble();
+  
+  //return type of method was double, so have to store it
+  double candyCost = displayChoices();
+  
+  //return type was void so don't have zo store it
+  dispense(moneyinserted,candyCost);
+}
+
+}
